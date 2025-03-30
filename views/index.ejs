@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../style/style.css" />
+    <title>The Thought Loom - Home</title>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#2D336B",
+              secondary: "#7886C7",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-gray-50">
+    <nav class="flex justify-between items-center shadow-lg p-5 bg-white">
+      <div class="site-title font-bold text-xl text-primary">
+        <a href="/">The Thought Loom</a>
+      </div>
+
+      <ul class="flex gap-8 font-medium">
+        <li class="text-secondary">
+          <a href="/">Blogs</a>
+        </li>
+        <li class="hover:text-secondary transition-colors">
+          <a href="/about">About</a>
+        </li>
+        <li class="hover:text-secondary transition-colors">
+          <a href="/blogs/create">New Blog</a>
+        </li>
+      </ul>
+    </nav>
+
+    <main class="max-w-4xl mx-auto p-6">
+      <section class="bg-white rounded-lg shadow-md p-8">
+        <div class="blogs content">
+          <h1 class="text-3xl font-bold text-primary mb-8">All Blogs</h1>
+
+          <div class="flex flex-col gap-5">
+            <% if (blogs.length > 0) { %> <% blogs.forEach(blog => { %>
+
+            <div class="">
+              <h3 class="title text-primary font-semibold">
+                <%= blog.title %>
+              </h3>
+              <p class="snippet"><%= blog.snippet %></p>
+            </div>
+
+            <% }) %> <% } else { %>
+            <p>There are no blogs to display...</p>
+            <% } %>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-primary text-white p-6 absolute bottom-0 w-full">
+      <div
+        class="max-w-4xl mx-auto flex justify-between items-center flex flex-col items-center gap-5"
+      >
+        <p>© 2023 The Thought Loom. All rights reserved.</p>
+        <div class="flex gap-4">
+          <a href="/" class="hover:text-purple-200 transition-colors">Home</a>
+          <a href="#" class="hover:text-purple-200 transition-colors"
+            >Privacy</a
+          >
+          <a href="/about" class="hover:text-purple-200 transition-colors"
+            >Contact</a
+          >
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
