@@ -1,50 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="../style/style.css" />
-    <title>The Thought Loom - Create</title>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              primary: "#2D336B",
-              secondary: "#7886C7",
-            },
-          },
-        },
-      };
-    </script>
-  </head>
+  <%- include("partials/head.ejs") %>
   <body class="bg-gray-50">
-    <nav class="flex justify-between items-center shadow-lg p-5 bg-white">
-      <div class="site-title font-bold text-xl text-primary">
-        <a href="/">The Thought Loom</a>
-      </div>
-
-      <ul class="flex gap-8 font-medium">
-        <li class="hover:text-secondary transition-colors">
-          <a href="/">Blogs</a>
-        </li>
-        <li class="hover:text-secondary transition-colors">
-          <a href="/about">About</a>
-        </li>
-        <li class="text-secondary">
-          <a href="/blogs/create">New Blog</a>
-        </li>
-      </ul>
-    </nav>
-
+    <%- include('partials/navbar') %>
     <main class="max-w-4xl mx-auto p-6">
       <section class="bg-white rounded-lg shadow-md p-8">
         <h1 class="text-3xl font-bold text-primary mb-8">
           Create New Blog Post
         </h1>
 
-        <form class="space-y-6">
+        <form action="/blogs" method="POST" class="space-y-6">
           <div class="space-y-2">
             <label for="title" class="block text-lg font-medium text-gray-700"
               >Blog Title</label
@@ -98,20 +63,6 @@
         </form>
       </section>
     </main>
-
-    <footer class="bg-primary text-white p-6 mt-12">
-      <div class="max-w-4xl mx-auto flex flex-col items-center gap-5">
-        <p>© 2023 The Thought Loom. All rights reserved.</p>
-        <div class="flex gap-4">
-          <a href="/" class="hover:text-purple-200 transition-colors">Home</a>
-          <a href="#" class="hover:text-purple-200 transition-colors"
-            >Privacy</a
-          >
-          <a href="/about" class="hover:text-purple-200 transition-colors"
-            >Contact</a
-          >
-        </div>
-      </div>
-    </footer>
+    <%- include('partials/footer') %>
   </body>
 </html>
